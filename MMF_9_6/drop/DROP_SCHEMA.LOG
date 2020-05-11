@@ -1,0 +1,41 @@
+Script info:
+
+SYS_CONTEXT('USERENV','MODULE')                                                 
+--------------------------------------------------------------------------------
+sqlplus.exe                                                                     
+
+Elapsed: 00:00:00.00
+
+Username caling to drop_schema: MMF_9_6
+
+
+Calling drop_tablespace.sql for data tablespace
+
+old   1: DROP TABLESPACE &&TABLESPACE_NAME._&&TBS_TYPE
+new   1: DROP TABLESPACE MMF_9_6_DATA
+
+Tablespace dropped.
+
+Elapsed: 00:00:00.68
+
+
+Calling drop_tablespace.sql for index tablespace
+
+old   1: DROP TABLESPACE &&TABLESPACE_NAME._&&TBS_TYPE
+new   1: DROP TABLESPACE MMF_9_6_IDX
+
+Tablespace dropped.
+
+Elapsed: 00:00:00.47
+
+Calling drop_schema.sql
+
+
+Elapsed: 00:00:00.00
+old   1: DROP USER &&USER_NAME CASCADE
+new   1: DROP USER MMF_9_6 CASCADE
+
+User dropped.
+
+Elapsed: 00:00:00.08
+

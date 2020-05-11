@@ -1,0 +1,123 @@
+Script info:
+
+SYS_CONTEXT('USERENV','MODULE')                                                 
+--------------------------------------------------------------------------------
+01@ main.sql                                                                    
+
+Elapsed: 00:00:00.00
+
+Username to create: MMF_9_6
+Path of datafile location: D:\Oracle\base\oradata\ORCL\DATAFILE\
+
+Calling create_tablespace.sql for data tablespace
+
+**************
+Script: create_tablespace.sql
+**************
+old   1: CREATE TABLESPACE &&DATA_TBS_NAME
+new   1: CREATE TABLESPACE MMF_9_6_DATA
+old   3:         '&&DATA_FILENAME' SIZE 10M AUTOEXTEND ON NEXT 10M MAXSIZE 10M
+new   3:         'D:\Oracle\base\oradata\ORCL\DATAFILE\MMF_9_6_DATA.dbf' SIZE 10M AUTOEXTEND ON NEXT 10M MAXSIZE 10M
+
+Tablespace created.
+
+Elapsed: 00:00:01.46
+
+Calling create_tablespace.sql for index tablespace
+
+**************
+Script: create_tablespace.sql
+**************
+old   1: CREATE TABLESPACE &&DATA_TBS_NAME
+new   1: CREATE TABLESPACE MMF_9_6_IDX
+old   3:         '&&DATA_FILENAME' SIZE 10M AUTOEXTEND ON NEXT 10M MAXSIZE 10M
+new   3:         'D:\Oracle\base\oradata\ORCL\DATAFILE\MMF_9_6_IDX.dbf' SIZE 10M AUTOEXTEND ON NEXT 10M MAXSIZE 10M
+
+Tablespace created.
+
+Elapsed: 00:00:00.77
+
+
+Calling create_schema.sql for index tablespace
+
+**************
+Script: create_schema.sql
+**************
+old   1: CREATE USER &&SCHEMA_NAME
+new   1: CREATE USER MMF_9_6
+old   2:   IDENTIFIED BY &&SCHEMA_PASSWORD
+new   2:   IDENTIFIED BY oracle
+old   3:   DEFAULT TABLESPACE &&DEFAULT_TBS
+new   3:   DEFAULT TABLESPACE MMF_9_6_DATA
+old   5:     QUOTA 20M on &&DEFAULT_TBS
+new   5:     QUOTA 20M on MMF_9_6_DATA
+
+User created.
+
+Elapsed: 00:00:00.03
+old   1: ALTER USER &&SCHEMA_NAME QUOTA UNLIMITED ON &&DEFAULT_TBS 
+new   1: ALTER USER MMF_9_6 QUOTA UNLIMITED ON MMF_9_6_DATA 
+
+User altered.
+
+Elapsed: 00:00:00.01
+old   1: ALTER USER &&SCHEMA_NAME QUOTA UNLIMITED ON &&INDEX_TBS 
+new   1: ALTER USER MMF_9_6 QUOTA UNLIMITED ON MMF_9_6_IDX 
+
+User altered.
+
+Elapsed: 00:00:00.00
+
+Calling privilege_schema.sql for index tablespace
+
+**************
+Script: privilege_schema.sql
+**************
+old   1: GRANT CREATE PROCEDURE TO &&SCHEMA_NAME
+new   1: GRANT CREATE PROCEDURE TO MMF_9_6
+
+Grant succeeded.
+
+Elapsed: 00:00:00.00
+old   1: GRANT CREATE SEQUENCE TO &&SCHEMA_NAME
+new   1: GRANT CREATE SEQUENCE TO MMF_9_6
+
+Grant succeeded.
+
+Elapsed: 00:00:00.00
+old   1: GRANT CREATE TABLE TO &&SCHEMA_NAME
+new   1: GRANT CREATE TABLE TO MMF_9_6
+
+Grant succeeded.
+
+Elapsed: 00:00:00.01
+old   1: GRANT CREATE TYPE TO &&SCHEMA_NAME
+new   1: GRANT CREATE TYPE TO MMF_9_6
+
+Grant succeeded.
+
+Elapsed: 00:00:00.01
+old   1: GRANT CREATE TRIGGER TO &&SCHEMA_NAME
+new   1: GRANT CREATE TRIGGER TO MMF_9_6
+
+Grant succeeded.
+
+Elapsed: 00:00:00.01
+old   1: GRANT CREATE SYNONYM TO &&SCHEMA_NAME
+new   1: GRANT CREATE SYNONYM TO MMF_9_6
+
+Grant succeeded.
+
+Elapsed: 00:00:00.01
+old   1: GRANT CREATE SESSION TO &&SCHEMA_NAME
+new   1: GRANT CREATE SESSION TO MMF_9_6
+
+Grant succeeded.
+
+Elapsed: 00:00:00.01
+old   1: GRANT CREATE ANY DIRECTORY TO &&SCHEMA_NAME
+new   1: GRANT CREATE ANY DIRECTORY TO MMF_9_6
+
+Grant succeeded.
+
+Elapsed: 00:00:00.00
